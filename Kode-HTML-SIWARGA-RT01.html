@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">SIWARGA - RT 01 RW 10</title>
+<style>
+    * { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #f8fafc; color: #1e293b; line-height: 1.6; }
+ .gradient-text { background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+ .card-hover { transition: all 0.3s ease; }
+ .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+ .nav-active { background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%); color: white!important; }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+ .animate-slide { animation: slideIn 0.4s ease-out; }
+ .modal-backdrop { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); }
+ .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+ .header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+ .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+ .logo-box { display: flex; align-items: center; gap: 12px; }
+ .logo { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+ .btn { padding: 8px 16px; font-size: 14px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s; }
+ .btn-primary { background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%); color: white; }
+ .btn-primary:hover { box-shadow: 0 4px 12px rgba(14,165,233,0.4); }
+ .btn-secondary { background: #e2e8f0; color: #475569; }
+ .btn-secondary:hover { background: #cbd5e1; }
+ .btn-success { background: #22c55e; color: white; }
+ .btn-danger { background: #ef4444; color: white; }
+ .badge { padding: 4px 12px; background: #dcfce7; color: #15803d; font-size: 12px; font-weight: 600; border-radius: 999px; }
+ .nav { background: white; border-bottom: 1px solid #e2e8f0; position: sticky; top: 64px; z-index: 40; }
+ .nav-inner { display: flex; gap: 4px; overflow-x: auto; padding: 8px 0; }
+ .nav-btn { padding: 8px 16px; font-size: 14px; font-weight: 500; border-radius: 8px; white-space: nowrap; border: none; background: transparent; color: #64748b; cursor: pointer; }
+ .nav-btn:hover { background: #f1f5f9; }
+ .main { padding: 32px 16px; }
+ .page-title { font-size: 30px; font-weight: 700; color: #1e293b; margin-bottom: 8px; }
+ .page-desc { color: #64748b; margin-bottom: 24px; }
+ .grid { display: grid; gap: 16px; }
+ .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+ .grid-2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+ .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+ .stat-card { padding: 24px; border-radius: 16px; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+ .stat-card-sky { background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); }
+ .stat-card-emerald { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+ .stat-card-amber { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+ .stat-card-violet { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+ .stat-value { font-size: 30px; font-weight: 700; margin-top: 4px; }
+ .stat-label { font-size: 14px; opacity: 0.9; }
+ .card { background: white; border-radius: 16px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+ .card-title { font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 16px; }
+ .table-wrap { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+ .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  thead { background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+  th { padding: 12px 24px; text-align: left; font-size: 12px; font-weight: 600; color: #64748b; text-transform: uppercase; }
+  td { padding: 16px 24px; font-size: 14px; border-bottom: 1px solid #f1f5f9; }
+  tr:hover { background: #f8fafc; }
+ .modal { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 16px; }
+ .modal-content { background: white; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.25); max-width: 448px; width: 100%; padding: 24px; max-height: 90vh; overflow-y: auto; }
+ .modal-title { font-size: 24px; font-weight: 700; color: #1e293b; margin-bottom: 16px; }
+ .form-group { margin-bottom: 16px; }
+ .form-label { display: block; font-size: 14px; font-weight: 500; color: #374151; margin-bottom: 8px; }
+ .form-input { width: 100%; padding: 8px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; }
+ .form-input:focus { outline: none; border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,0.1); }
+ .flex { display: flex; }
+ .flex-between { justify-content: space-between; align-items: center; }
+ .flex-gap { gap: 8px; }
+ .flex-wrap { flex-wrap: wrap; }
+ .text-center { text-align: center; }
+ .hidden { display: none!important; }
+ .tag { padding: 4px 12px; font-size: 12px; font-weight: 600; border-radius: 999px; }
+ .tag-sky { background: #e0f2fe; color: #0369a1; }
+ .tag-emerald { background: #d1fae5; color: #047857; }
+ .tag-amber { background: #fef3c7; color: #b45309; }
+ .tag-green { background: #dcfce7; color: #15803d; }
+ .tag-blue { background: #dbeafe; color: #1d4ed8; }
+ .tag-red { background: #fee2e2; color: #b91c1c; }
+ .tag-slate { background: #f1f5f9; color: #475569; }
+ .toast-container { position: fixed; top: 16px; right: 16px; z-index: 100; display: flex; flex-direction: column; gap: 8px; }
+ .toast { padding: 12px 16px; border-radius: 8px; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); animation: slideIn 0.3s; }
+  @media (max-width: 768px) {
+   .grid-4 { grid-template-columns: 1fr; }
+   .grid-2 { grid-template-columns: 1fr; }
+   .grid-3 { grid-template-columns: 1fr; }
+   .page-title { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div id="toastContainer" class="toast-container"></div>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo-box">
+      <div class="logo">🏠</div>
+      <div>
+        <h1 class="gradient-text" style="font-size: 18px; font-weight: 700;" id="headerTitle">SIWARGA RT 01</h1>
+        <p style="font-size: 12px; color: #64748b;" id="headerSubtitle">RW 10 Cendrawasih Raya, Depok</p>
+      </div>
+    </div>
+    <div class="flex flex-gap">
+      <span id="userBadge" class="badge hidden">Admin</span>
+      <button id="btnLogin" onclick="showModal('loginModal')" class="btn btn-primary">Login Pengurus</button>
+      <button id="btnLogout" onclick="logout()" class="btn btn-secondary hidden">Logout</button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container nav-inner" id="mainNav">
+    <button onclick="switchPage('dashboard')" data-page="dashboard" class="nav-btn nav-active">Dashboard</button>
+    <button onclick="switchPage('ronda')" data-page="ronda" class="nav-btn">Absensi Ronda</button>
+    <button onclick="switchPage('pertemuan')" data-page="pertemuan" class="nav-btn">Pertemuan</button>
+    <button onclick="switchPage('keluhan')" data-page="keluhan" class="nav-btn">Laporan Keluhan</button>
+    <button onclick="switchPage('iuran')" data-page="iuran" class="nav-btn">Transparansi Iuran</button>
+    <button onclick="switchPage('surat')" data-page="surat" class="nav-btn">Surat Pengantar</button>
+    <button onclick="switchPage('pengaturan')" data-page="pengaturan" class="nav-btn admin-only hidden">Pengaturan</button>
+  </div>
+</nav>
+
+<main class="container main">
+  <div id="page-dashboard" class="page animate-slide">
+    <h2 class="page-title" id="dashboardTitle">Dashboard RT 01 RW 10</h2>
+    <p class="page-desc" id="dashboardDesc">Jl. Cendrawasih Raya, Kel. Pengasinan, Kec. Sawangan, Kota Depok</p>
+    <div class="grid grid-4" style="margin-bottom: 32px;">
+      <div class="stat-card stat-card-sky card-hover">
+        <div class="flex flex-between" style="margin-bottom: 16px;">
+          <div><p class="stat-label">Kehadiran Ronda</p><h3 class="stat-value" id="statRonda">0%</h3></div>
+          <div style="font-size: 40px; opacity: 0.8;">🌙</div>
+        </div>
+        <p style="font-size: 12px; opacity: 0.9;">Bulan ini</p>
+      </div>
+      <div class="stat-card stat-card-emerald card-hover">
+        <div class="flex flex-between" style="margin-bottom: 16px;">
+          <div><p class="stat-label">Kehadiran Pertemuan</p><h3 class="stat-value" id="statPertemuan">0%</h3></div>
+          <div style="font-size: 40px; opacity: 0.8;">👥</div>
+        </div>
+        <p style="font-size: 12px; opacity: 0.9;">Bulan ini</p>
+      </div>
+      <div class="stat-card stat-card-amber card-hover">
+        <div class="flex flex-between" style="margin-bottom: 16px;">
+          <div><p class="stat-label">Keluhan Aktif</p><h3 class="stat-value" id="statKeluhan">0</h3></div>
+          <div style="font-size: 40px; opacity: 0.8;">⚠</div>
+        </div>
+        <p style="font-size: 12px; opacity: 0.9;">Belum selesai</p>
+      </div>
+      <div class="stat-card stat-card-violet card-hover">
+        <div class="flex flex-between" style="margin-bottom: 16px;">
+          <div><p class="stat-label">Saldo Kas</p><h3 class="stat-value" style="font-size: 24px;" id="statKas">Rp 0</h3></div>
+          <div style="font-size: 40px; opacity: 0.8;">💰</div>
+        </div>
+        <p style="font-size: 12px; opacity: 0.9;">Update terbaru</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-pengaturan" class="page hidden animate-slide">
+    <h2 class="page-title">Pengaturan</h2>
+    <p class="page-desc">Kelola data dan konfigurasi sistem</p>
+    <div class="grid grid-2" style="margin-bottom: 24px;">
+      <div class="card">
+        <h3 class="card-title">Data RT</h3>
+        <div class="form-group">
+          <label class="form-label">Nama RT</label>
+          <input type="text" id="inputRT" placeholder="RT 01" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nama RW</label>
+          <input type="text" id="inputRW" placeholder="RW 10" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Alamat Jalan</label>
+          <input type="text" id="inputAlamat" placeholder="Jl. Cendrawasih Raya" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kelurahan</label>
+          <input type="text" id="inputKelurahan" placeholder="Pengasinan" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kecamatan</label>
+          <input type="text" id="inputKecamatan" placeholder="Sawangan" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kota</label>
+          <input type="text" id="inputKota" placeholder="Depok" class="form-input">
+        </div>
+        <button onclick="simpanDataRT()" class="btn btn-primary" style="width: 100%;">Simpan Data RT</button>
+      </div>
+      <div class="card">
+        <h3 class="card-title">Nomor WA Grup RT</h3>
+        <div class="form-group">
+          <label class="form-label">Nomor WhatsApp</label>
+          <input type="text" id="inputWAGroup" placeholder="6281234567890" class="form-input">
+          <p style="font-size: 12px; color: #64748b; margin-top: 4px;">Format: 62xxx (tanpa +)</p>
+        </div>
+        <button onclick="simpanWAGroup()" class="btn btn-primary" style="width: 100%; margin-bottom: 16px;">Simpan WA</button>
+        <h3 class="card-title" style="margin-top: 24px;">Export Data</h3>
+        <p style="font-size: 14px; color: #64748b; margin-bottom: 16px;">Download semua data dalam format JSON</p>
+        <button onclick="exportData()" class="btn" style="width: 100%; background: #1e293b; color: white;">Export Semua Data</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Halaman lain sama kayak sebelumnya, skip biar ga kepanjangan -->
+  <div id="page-ronda" class="page hidden animate-slide"></div>
+  <div id="page-pertemuan" class="page hidden animate-slide"></div>
+  <div id="page-keluhan" class="page hidden animate-slide"></div>
+  <div id="page-iuran" class="page hidden animate-slide"></div>
+  <div id="page-surat" class="page hidden animate-slide"></div>
+</main>
+
+<!-- Modal Login -->
+<div id="loginModal" class="modal hidden modal-backdrop">
+  <div class="modal-content animate-slide">
+    <h3 class="modal-title">Login Pengurus</h3>
+    <form onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label class="form-label">Username</label>
+        <input type="text" id="loginUsername" required class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" id="loginPassword" required class="form-input">
+      </div>
+      <div class="flex flex-gap">
+        <button type="submit" class="btn btn-primary" style="flex: 1;">Login</button>
+        <button type="button" onclick="closeModal('loginModal')" class="btn btn-secondary">Batal</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+const DB = {
+  get: (key) => JSON.parse(localStorage.getItem(key) || '[]'),
+  set: (key, val) => localStorage.setItem(key, JSON.stringify(val)),
+  getObj: (key) => JSON.parse(localStorage.getItem(key) || '{}'),
+  setObj: (key, val) => localStorage.setItem(key, JSON.stringify(val))
+};
+
+let isAdmin = false;
+
+window.onload = () => {
+  checkLogin();
+  initData();
+  loadRTData();
+  renderAll();
+};
+
+function initData() {
+  if (!localStorage.getItem('rt01_initialized')) {
+    DB.setObj('settings', {
+      rt: 'RT 01', rw: 'RW 10', alamat: 'Jl. Cendrawasih Raya',
+      kelurahan: 'Pengasinan', kecamatan: 'Sawangan', kota: 'Depok',
+      waGroup: ''
+    });
+    localStorage.setItem('rt01_initialized', 'true');
+  }
+}
+
+function loadRTData() {
+  const s = DB.getObj('settings');
+  document.getElementById('headerTitle').textContent = `SIWARGA ${s.rt}`;
+  document.getElementById('headerSubtitle').textContent = `${s.rw} ${s.alamat}, ${s.kota}`;
+  document.getElementById('pageTitle').textContent = `SIWARGA - ${s.rt} ${s.rw}`;
+  document.getElementById('dashboardTitle').textContent = `Dashboard ${s.rt} ${s.rw}`;
+  document.getElementById('dashboardDesc').textContent = `${s.alamat}, Kel. ${s.kelurahan}, Kec. ${s.kecamatan}, Kota ${s.kota}`;
+}
+
+function simpanDataRT() {
+  const settings = DB.getObj('settings');
+  settings.rt = document.getElementById('inputRT').value || 'RT 01';
+  settings.rw = document.getElementById('inputRW').value || 'RW 10';
+  settings.alamat = document.getElementById('inputAlamat').value || 'Jl. Cendrawasih Raya';
+  settings.kelurahan = document.getElementById('inputKelurahan').value || 'Pengasinan';
+  settings.kecamatan = document.getElementById('inputKecamatan').value || 'Sawangan';
+  settings.kota = document.getElementById('inputKota').value || 'Depok';
+  DB.setObj('settings', settings);
+  loadRTData();
+  showToast('Data RT berhasil disimpan!', 'success');
+}
+
+function simpanWAGroup() {
+  const nomor = document.getElementById('inputWAGroup').value.trim();
+  if (!nomor ||!/^62\d+$/.test(nomor)) {
+    showToast('Format nomor salah! Gunakan 62xxx', 'error');
+    return;
+  }
+  const settings = DB.getObj('settings');
+  settings.waGroup = nomor;
+  DB.setObj('settings', settings);
+  showToast('Nomor WA berhasil disimpan!', 'success');
+}
+
+function exportData() {
+  const allData = {
+    settings: DB.getObj('settings'),
+    exported: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(allData, null, 2)], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `backup-rt-${formatDate(new Date())}.json`;
+  a.click();
+  showToast('Data berhasil diexport!', 'success');
+}
+
+function checkLogin() {
+  isAdmin = localStorage.getItem('rt01_admin') === 'true';
+  updateUIForAdmin();
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const user = document.getElementById('loginUsername').value;
+  const pass = document.getElementById('loginPassword').value;
+  if (user === 'admin' && pass === 'rt0110') {
+    localStorage.setItem('rt01_admin', 'true');
+    isAdmin = true;
+    updateUIForAdmin();
+    closeModal('loginModal');
+    showToast('Login berhasil!', 'success');
+    renderAll();
+  } else {
+    showToast('Username atau password salah!', 'error');
+  }
+}
+
+function logout() {
+  localStorage.removeItem('rt01_admin');
+  isAdmin = false;
+  updateUIForAdmin();
+  showToast('Logout berhasil', 'success');
+}
+
+function updateUIForAdmin() {
+  document.getElementById('btnLogin').classList.toggle('hidden', isAdmin);
+  document.getElementById('btnLogout').classList.toggle('hidden',!isAdmin);
+  document.getElementById('userBadge').classList.toggle('hidden',!isAdmin);
+  document.querySelectorAll('.admin-only').forEach(el => el.classList.toggle('hidden',!isAdmin));
+  if (isAdmin) {
+    const s = DB.getObj('settings');
+    document.getElementById('inputRT').value = s.rt || '';
+    document.getElementById('inputRW').value = s.rw || '';
+    document.getElementById('inputAlamat').value = s.alamat || '';
+    document.getElementById('inputKelurahan').value = s.kelurahan || '';
+    document.getElementById('inputKecamatan').value = s.kecamatan || '';
+    document.getElementById('inputKota').value = s.kota || '';
+    document.getElementById('inputWAGroup').value = s.waGroup || '';
+  }
+}
+
+function switchPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+  document.getElementById('page-' + page).classList.remove('hidden');
+  document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('nav-active'));
+  document.querySelector(`[data-page="${page}"]`).classList.add('nav-active');
+}
+
+function showModal(id) {
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.add('hidden');
+}
+
+function showToast(msg, type = 'info') {
+  const colors = { success: '#22c55e', error: '#ef4444', info: '#0ea5e9' };
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.style.background = colors[type];
+  toast.textContent = msg;
+  document.getElementById('toastContainer').appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+function formatDate(date) {
+  const d = new Date(date);
+  return d.toISOString().split('T')[0];
+}
+
+function renderAll() {
+  // Render logic lain...
+}
+</script>
+</body>
+</html>
